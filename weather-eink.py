@@ -9,13 +9,13 @@ from PIL import Image, ImageDraw, ImageFont
 
 epd = epd2in13.EPD()		# get the display
 epd.init(epd.FULL_UPDATE)	# initialize the display
-print("Clear...")			# prints to console, not the display (for debugging)
-epd.Clear(0xFF)				# clears the display (color is req. argument but irrelevant otherwise)
+print("Clear...")		# prints to console, not the display (for debugging)
+epd.Clear(0xFF)			# clears the display (color is req. argument but irrelevant otherwise)
 
 def printToDisplay(string, x, y):
 	image = Image.new('1', (epd2in13.EPD_HEIGHT, epd2in13.EPD_WIDTH), 255)
 	draw = ImageDraw.Draw(image)
-	fontLarge = ImageFont.truetype('/home/pi/weather-display/lib/fonts/SourceCodePro-Semibold.ttf', 24)
+	fontLarge = ImageFont.truetype('/home/pi/weather-display/lib/fonts/SourceCodePro-Semibold.ttf', 24) # You'll need to install these fonts in the noted directories
 	fontMedium = ImageFont.truetype('/home/pi/weather-display/lib/fonts/slkscr.ttf', 24)
 	fontSmall = ImageFont.truetype('/home/pi/weather-display/lib/fonts/slkscr.ttf', 16)
 	now = time.localtime()
